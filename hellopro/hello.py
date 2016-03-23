@@ -17,5 +17,13 @@ def show_user_profile(username):
 def show_post(post_id):
     return 'Post %d' % post_id
 
+@app.route('/projects/')
+def projects():
+    return 'The projcet page'
+
+@app.route('/about')
+def about():
+    return 'The about page'
+    
 if __name__ == '__main__':
     app.run(debug=True)
