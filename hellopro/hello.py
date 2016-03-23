@@ -1,9 +1,16 @@
-from flask import Flask
+from flask import Flask, request, redirect, render_template
+from flask.ext.script import Manager
+
 app = Flask(__name__)
+manager = Manager(app)
 
 @app.route('/')
 def index():
-    return 'Index Page'
+    return render_template('index.html')
+
+@app.route('/redirect')
+def redict():
+    return redirect("http://www.baidu.com")
 
 @app.route('/hello')
 def hello():
@@ -24,6 +31,6 @@ def projects():
 @app.route('/about')
 def about():
     return 'The about page'
-    
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
